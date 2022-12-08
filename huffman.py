@@ -8,7 +8,11 @@ def read_file(filename):
         if prob[-1] == "\n":
             prob = prob[:-1:]
         prob = prob.split(" ")
-        prob = [float(x) for x in prob]
+        if ',' in prob[0]:
+            prob = [x.replace(',', '.') for x in prob]
+            prob = [float(x) for x in prob]
+        else:
+            prob = [float(x) for x in prob]
 
     return alph, prob
 
