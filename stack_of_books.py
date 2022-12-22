@@ -4,6 +4,9 @@ from algorithm_B_Y import coding_b_y
 def read_file(filename):
     with open(filename, "r") as f:
         data = f.read()
+        if not data:
+            print("Not correct alphabet")
+            exit()
         if data[-1] == "\n":
             data = data[:-1:]
         data = data.split(" ")
@@ -44,6 +47,16 @@ def write_file(coding_str, number_by):
 if __name__ == '__main__':
     alphabet = read_file("alphabet_for_sob.txt")
     string_for_sob = input()
+    if string_for_sob == "":
+        print("Not correct string")
+        exit()
+    correct = True
+    for el in string_for_sob:
+        if el not in alphabet:
+            print(f"The character '{el}' is not in the alphabet")
+            correct = False
+    if not correct:
+        exit()
     result = coding_stack_of_books(alphabet, string_for_sob)
     _, number = coding_b_y(string_for_sob)
     write_file(result, number)

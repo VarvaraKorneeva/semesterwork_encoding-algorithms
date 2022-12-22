@@ -10,9 +10,14 @@ def read_file(filename):
         prob = prob.split(" ")
         if ',' in prob[0]:
             prob = [x.replace(',', '.') for x in prob]
+        try:
             prob = [float(x) for x in prob]
-        else:
-            prob = [float(x) for x in prob]
+        except ValueError:
+            print("Not correct alphabet")
+            exit()
+        if sum(prob) != 1:
+            print("Not correct alphabet")
+            exit()
 
     return alph, prob
 
@@ -66,5 +71,8 @@ if __name__ == '__main__':
     alph_dict = get_dict(alphabet, probabilities)
     tree = Tree(alph_dict)
     bin_str = input()
+    if bin_str == "":
+        print("Not correct string")
+        exit()
     result = tree.decode_huffman(bin_str)
     print(result)

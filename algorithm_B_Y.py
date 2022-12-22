@@ -32,5 +32,8 @@ def write_file(coding_str, str_index):
 
 if __name__ == '__main__':
     string_for_B_Y = input()
+    if string_for_B_Y == "":
+        print("Not correct string")
+        exit()
     result, number = coding_b_y(string_for_B_Y)
     write_file(result, number)
