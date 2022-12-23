@@ -57,6 +57,6 @@ if __name__ == '__main__':
             correct = False
     if not correct:
         exit()
-    result = coding_stack_of_books(alphabet, string_for_sob)
-    _, number = coding_b_y(string_for_sob)
+    new_str, number = coding_b_y(string_for_sob)
+    result = coding_stack_of_books(alphabet, new_str)
     write_file(result, number)
