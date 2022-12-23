@@ -1,6 +1,9 @@
 def read_file(filename):
     with open(filename, "r") as f:
         alph = f.readline()
+        if not alph:
+            print("Not correct alphabet")
+            exit()
         if alph[-1] == "\n":
             alph = alph[:-1:]
         alph = alph.split(" ")
