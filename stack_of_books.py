@@ -1,4 +1,4 @@
-from algorithm_B_Y import coding_b_y
+from algorithm_B_Y import coding_b_y, write_file as write_file_b_Y
 
 
 def read_file(filename):
@@ -58,5 +58,6 @@ if __name__ == '__main__':
     if not correct:
         exit()
     new_str, number = coding_b_y(string_for_sob)
+    write_file_b_Y(new_str, number)
     result = coding_stack_of_books(alphabet, new_str)
     write_file(result, number)

@@ -18,9 +18,6 @@ def read_file(filename):
         except ValueError:
             print("Not correct alphabet")
             exit()
-        if sum(prob) != 1:
-            print("Not correct alphabet")
-            exit()
 
     return alph, prob
 
@@ -61,10 +58,14 @@ class Tree:
                 result += curr_node.key
                 curr_node = self.root
                 continue
-            if el == "0":
+            elif el == "0":
                 curr_node = curr_node.lchild
             elif el == "1":
                 curr_node = curr_node.rchild
+            if curr_node.key is not None:
+                result += curr_node.key
+                curr_node = self.root
+                continue
 
         return result
 
